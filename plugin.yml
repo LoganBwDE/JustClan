@@ -1,0 +1,13 @@
+name: JustClan
+version: 2.2.0
+author: LoganBwDE
+main: me.loganbwde.Clan.main
+description: Clan plugin with lots of features included
+commands:
+     clan:
+          aliases: [cl]
+          description: Main Command
+          usage: </command> <args>
+     clreload:
+          description: Reloads all files
+          usage: </command>

@@ -1,0 +1,81 @@
+Basic:
+   prefix: '&6[&bClans&6]'
+   prefixClan: '&6[&bClan-Chat&6] '
+   chatprefix: '#'
+   lang: 'en'
+   scoreboard: false
+   paysystem: ITEM
+   builtInChat: true
+   shopname: '&cClanShop'
+   formatting: true
+PvP:
+   pvpinclan: false
+ClanWars:
+   pointslose: -250
+   pointswin: 250 
+ClanCreate:
+   clanCreateCosts: true
+   clanCreateMoneyNeed: 1000
+   CreateItem: DIAMOND
+   CreateAmount: 3
+ClanJoin:
+   clanJoinCosts: true 
+   clanJoinMoneyNeed: 1000
+   JoinItem: DIAMOND
+   JoinAmount: 1
+Chat:
+   withclan:
+      use: true
+      range: global
+      rangedistance: 100
+      format: '<tag>&r <clan> <job> <prefix> <player> <suffix> :&r <message>'
+   noclan:
+      use: true
+      range: global
+      rangedistance: 100
+      format: '<job> <prefix> <player> <suffix> :&r <message>'
+   clanchat:
+      use: true
+      range: global
+      rangedistance: 100
+      format: '<job> <prefix> <player> >>&r <message>'
+#RankColour
+RankColour:
+   Lvl0: '&f'
+   Lvl1: '&e'
+   Lvl2: '&d'
+   Lvl3: '&c&o'
+   Lvl4: '&b&l'
+   Lvl5: '&a&l&o'
+   Lvl6: '&4&l&o'
+
+#RankLevel
+RankLevel:
+   Lvl1: 1000
+   Lvl2: 2000
+   Lvl3: 3000
+   Lvl4: 4000
+   Lvl5: 5000
+   Lvl6: 6000
+
+MemberAmount:
+   Lvl0: 2
+   Lvl1: 4
+   Lvl2: 7
+   Lvl3: 9
+   Lvl4: 11
+   Lvl5: 13
+   Lvl6: 15
+ClanRank:
+   Newbie:
+      Color: '&2'
+      Kills: 0
+      Points: 0
+   Member:
+      Color: '&a'
+      Kills: 100
+      Points: 0
+   Elite:
+      Color: '&6'
+      Kills: 1000
+      Points: 2000

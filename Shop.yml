@@ -1,0 +1,79 @@
+Armor:
+   main:
+      Material: LEATHER_CHESTPLATE
+      Amount: 1
+      Name: '&6Armor'
+   admin:
+      Material: IRON_CHESTPLATE
+      Amount: 1
+      Name: '&cArmor-Edit'
+   slot0:
+      Material: LEATHER_CHESTPLATE
+      Amount: 1
+      Enchantment: DURABILITY,THORNS
+      EnchantmentLevel: 5,2
+      Cost: 10
+   slot4:
+      Material: IRON_CHESTPLATE
+      Amount: 2
+      Enchantment: SILK_TOUCH
+      EnchantmentLevel: 1
+      Cost: 20
+   slot8:
+      Material: DIAMOND_CHESTPLATE
+      Amount: 4
+      Enchantment: THORNS
+      EnchantmentLevel: 2
+      Cost: 30
+Bow:
+   main:
+      Material: BOW
+      Amount: 1
+      Name: '&6Bow'
+   admin:
+      Material: BOW
+      Amount: 1
+      Name: '&cBow-Edit'
+      Enchantment: ARROW_FIRE
+      EnchantmentLevel: 1
+   slot0:
+      Material: BOW
+      Amount: 1
+      Enchantment: ARROW_INFINITE
+      EnchantmentLevel: 1
+      Cost: 10
+Sword:
+   main:
+      Material: WOOD_SWORD
+      Amount: 1
+      Name: '&6Sword'
+   admin:
+      Material: IRON_SWORD
+      Amount: 1
+      Name: '&cSword-Edit'
+   slot0:
+      Material: DIAMOND_SWORD
+      Amount: 1
+      Name: ClutchIt
+      Cost: 10
+   slot7:
+      Material: DIAMOND_SWORD
+      Amount: 4
+      Enchantment: FIRE_ASPECT,KNOCKBACK,DAMAGE_ALL
+      EnchantmentLevel: 10,10,10
+      Name: '&4Excalibur'
+      Cost: 10
+Special:
+   main:
+      Material: STICK
+      Amount: 1
+      Name: '&6Special'
+   admin:
+      Material: STICK
+      Amount: 1
+      Name: '&cSpecial-Edit'
+   slot0:
+      Material: STICK
+      Amount: 1
+      Name: Stick of Truth
+      Cost: 10

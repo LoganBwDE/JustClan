@@ -31,13 +31,13 @@ public class CmdInvite
                 {
                     if (m.getClanManager().getMember(m.getClanManager().getClan(name)).contains(p2.getName()))
                     {
-                        m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.alreadyinclan2").replace("%player%", arg));
+                        m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.alreadyinclan2").replace("%player%", arg));
                     }
                     else
                     {
                         m.getClanManager().invClan(arg, name);
-                        m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.claninv1").replace("%player%", p2.getName()));
-                        m.getMessagesManager().sendMessage(p2, m.getFileManager().getMessageEntrys().get("Messsages.claninv2").replace("%clan%", m.getClanManager().getClan(name)));
+                        m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.claninv1").replace("%player%", p2.getName()));
+                        m.getMessagesManager().sendMessage(p2, m.getFileManager().getMessageEntrys().get("Messages.claninv2").replace("%clan%", m.getClanManager().getClan(name)));
                     }
                 }
                 else
@@ -47,12 +47,12 @@ public class CmdInvite
             }
             else
             {
-                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.alreadyinclan"));
+                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.alreadyinclan"));
             }
         }
         else
         {
-            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.clanfull"));
+            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.clanfull"));
         }
     }
     
@@ -82,29 +82,29 @@ public class CmdInvite
                         {
                             if (m.getClanManager().getMember(m.getClanManager().getClan(name)).contains(p2.getName()))
                             {
-                                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.alreadyinclan2").replace("%player%", args[1]));
+                                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.alreadyinclan2").replace("%player%", args[1]));
                             }
                             else
                             {
                                 m.getClanManager().invClan(args[1], name);
-                                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.claninv1").replace("%player%", p2.getName()));
-                                m.getMessagesManager().sendMessage(p2, m.getFileManager().getMessageEntrys().get("Messsages.claninv2").replace("%clan%", m.getClanManager().getClan(name)));
+                                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.claninv1").replace("%player%", p2.getName()));
+                                m.getMessagesManager().sendMessage(p2, m.getFileManager().getMessageEntrys().get("Messages.claninv2").replace("%clan%", m.getClanManager().getClan(name)));
                             }
                         }
                         else
                         {
-                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.notonline").replace("%player%", args[1]));
+                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notonline").replace("%player%", args[1]));
                         }
                     }
                 }
                 else
                 {
-                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.alreadyinclan"));
+                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.alreadyinclan"));
                 }
             }
             else
             {
-                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.clanfull"));
+                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.clanfull"));
             }
         }
         catch(ArrayIndexOutOfBoundsException e)
@@ -130,29 +130,29 @@ public class CmdInvite
                         {
                             if (m.getClanManager().getMember(m.getClanManager().getClan(name)).contains(p2.getName()))
                             {
-                                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.alreadyinclan2").replace("%player%", args[1]));
+                                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.alreadyinclan2").replace("%player%", args[1]));
                             }
                             else
                             {
                                 m.getClanManager().invClan(args[1], name);
-                                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.claninv1").replace("%player%", p2.getName()));
-                                m.getMessagesManager().sendMessage(p2, m.getFileManager().getMessageEntrys().get("Messsages.claninv2").replace("%clan%", m.getClanManager().getClan(name)));
+                                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.claninv1").replace("%player%", p2.getName()));
+                                m.getMessagesManager().sendMessage(p2, m.getFileManager().getMessageEntrys().get("Messages.claninv2").replace("%clan%", m.getClanManager().getClan(name)));
                             }
                         }
                         else
                         {
-                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.notonline").replace("%player%", args[1]));
+                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notonline").replace("%player%", args[1]));
                         }
                     }
                 }
                 else
                 {
-                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.alreadyinclan"));
+                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.alreadyinclan"));
                 }
             }
             else
             {
-                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.clanfull"));
+                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.clanfull"));
             }
         }
     }

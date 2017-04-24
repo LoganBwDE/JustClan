@@ -15,6 +15,7 @@ Messages:
    notitemscreate: '&cYou dont have enough items to create an clan'
    notitemsjoin: '&cYou dont have enough items to join an clan.'
    playerjoined: '&c%player% &cjoined the clan'
+   alreadyhaveclan: '&cYou already have a clan.'
    clanfull: '&cYour Clan is full.'
    alreadyinclan: '&cYou are already in this clan.'
    alreadyinclan2: '&6%player% &cis already in this clan.'

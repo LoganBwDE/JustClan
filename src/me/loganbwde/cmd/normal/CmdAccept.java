@@ -14,11 +14,9 @@ public class CmdAccept
         m = main;
     }
     
-    @SuppressWarnings({ "deprecation", "null"})
+    @SuppressWarnings({ "deprecation"})
     public void accept(Player p,String arg)
     {
-        String[] args = null;
-        args[1] = arg;
         String name = p.getName();
         String paysystem = m.getFileManager().getConfigEntrys().get("Basic.paysystem");
         if (m.getClanManager().getInvites().get(name) != null)
@@ -35,10 +33,10 @@ public class CmdAccept
                         m.getMessagesManager().sendMessage(pl, m.getFileManager().getMessageEntrys().get("Messages.playerjoined").replace("%player%", pl.getName()));
                     }
                 }
-                String pown = m.getClanManager().getClanOwner(args[1]);
+                String pown = m.getClanManager().getClanOwner(arg);
                 Player po = Bukkit.getServer().getPlayer(pown);
                 m.getMessagesManager().sendMessage(po, m.getFileManager().getMessageEntrys().get("Messages.playerjoined").replace("%player%", name));
-                m.getClanManager().joinClan(args[1], p.getName());
+                m.getClanManager().joinClan(arg, p.getName());
             }
             else
             {
@@ -73,10 +71,10 @@ public class CmdAccept
                                             m.getMessagesManager().sendMessage(pl, m.getFileManager().getMessageEntrys().get("Messages.playerjoined").replace("%player%", pl.getName()));
                                         }
                                     }
-                                    String pown = m.getClanManager().getClanOwner(args[1]);
+                                    String pown = m.getClanManager().getClanOwner(arg);
                                     Player po = Bukkit.getServer().getPlayer(pown);
                                     m.getMessagesManager().sendMessage(po, m.getFileManager().getMessageEntrys().get("Messages.playerjoined").replace("%player%", name));
-                                    m.getClanManager().joinClan(args[1], name);
+                                    m.getClanManager().joinClan(arg, name);
                                     accept = true;
                                 }
                                 else
@@ -114,10 +112,10 @@ public class CmdAccept
                                         m.getMessagesManager().sendMessage(pl, m.getFileManager().getMessageEntrys().get("Messages.playerjoined").replace("%player%", pl.getName()));
                                     }
                                 }
-                                String pown = m.getClanManager().getClanOwner(args[1]);
+                                String pown = m.getClanManager().getClanOwner(arg);
                                 Player po = Bukkit.getServer().getPlayer(pown);
                                 m.getMessagesManager().sendMessage(po, m.getFileManager().getMessageEntrys().get("Messages.playerjoined").replace("%player%", name));
-                                m.getClanManager().joinClan(args[1], name);
+                                m.getClanManager().joinClan(arg, name);
                             }
                             else
                             {

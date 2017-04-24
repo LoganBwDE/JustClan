@@ -19,77 +19,84 @@ public class CmdCreate
     {
         boolean created = false;
         String paysystem = m.getFileManager().getConfigEntrys().get("Basic.paysystem");
-        if (!Boolean.parseBoolean(m.getFileManager().getConfigEntrys().get("ClanCreate.clanCreateCosts")))
+        if(!m.getClanManager().HaveClan(name))
         {
-            m.getClanManager().ClanCreate(name, p.getName(), tag);
-            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.crclan"));
-            created = true;
-        }
-        else
-        {
-            if (paysystem.toLowerCase().equalsIgnoreCase("item"))
+            if (!Boolean.parseBoolean(m.getFileManager().getConfigEntrys().get("ClanCreate.clanCreateCosts")))
             {
-                Material mat = Material.getMaterial(m.getFileManager().getConfigEntrys().get("ClanCreate.CreateItem").toUpperCase());
-                int amount = 0;
-                for(int i = 0;i < p.getInventory().getSize();i++)
+                m.getClanManager().ClanCreate(name, p.getName(), tag);
+                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.crclan"));
+                created = true;
+            }
+            else
+            {
+                if (paysystem.toLowerCase().equalsIgnoreCase("item"))
                 {
-                    if(p.getInventory().getItem(i).getType() == mat)
-                    {
-                        amount = amount + p.getInventory().getItem(i).getAmount();
-                    }
-                }
-                if(amount <= Integer.parseInt(m.getFileManager().getConfigEntrys().get("ClanCreate.CreateAmount")))
-                {
+                    Material mat = Material.getMaterial(m.getFileManager().getConfigEntrys().get("ClanCreate.CreateItem").toUpperCase());
+                    int amount = 0;
                     for(int i = 0;i < p.getInventory().getSize();i++)
                     {
                         if(p.getInventory().getItem(i).getType() == mat)
                         {
-                            if(amount <= p.getInventory().getItem(i).getAmount())
+                            amount = amount + p.getInventory().getItem(i).getAmount();
+                        }
+                    }
+                    if(amount <= Integer.parseInt(m.getFileManager().getConfigEntrys().get("ClanCreate.CreateAmount")))
+                    {
+                        for(int i = 0;i < p.getInventory().getSize();i++)
+                        {
+                            if(p.getInventory().getItem(i).getType() == mat)
                             {
-                                amount = p.getInventory().getItem(i).getAmount() - amount;
-                                p.getInventory().getItem(i).setAmount(amount);
-                                p.updateInventory();
+                                if(amount <= p.getInventory().getItem(i).getAmount())
+                                {
+                                    amount = p.getInventory().getItem(i).getAmount() - amount;
+                                    p.getInventory().getItem(i).setAmount(amount);
+                                    p.updateInventory();
+                                    m.getClanManager().ClanCreate(name, p.getName(), tag);
+                                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.crclan"));
+                                    created = true;
+                                }
+                                else
+                                {
+                                    amount = amount - p.getInventory().getItem(i).getAmount();
+                                    p.getInventory().remove(i);
+                                    p.updateInventory();
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (paysystem.toLowerCase().equalsIgnoreCase("money"))
+                    {
+                        if (Bukkit.getPluginManager().getPlugin("Vault") != null)
+                        {
+                            if (m.getEcononmy().getBalance(p.getName()) >= Integer.parseInt(m.getFileManager().getConfigEntrys().get("ClanCreate.clanCreateMoneyNeed")))
+                            {
+                                m.getEcononmy().withdrawPlayer(p.getName(), Integer.parseInt(m.getFileManager().getConfigEntrys().get("ClanCreate.clanCreateMoneyNeed")));
                                 m.getClanManager().ClanCreate(name, p.getName(), tag);
                                 m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.crclan"));
                                 created = true;
                             }
-                            else
-                            {
-                                amount = amount - p.getInventory().getItem(i).getAmount();
-                                p.getInventory().remove(i);
-                                p.updateInventory();
-                            }
                         }
                     }
                 }
             }
-            else
+            if (created == false)
             {
-                if (paysystem.toLowerCase().equalsIgnoreCase("money"))
+                if (paysystem.equalsIgnoreCase("money"))
                 {
-                    if (Bukkit.getPluginManager().getPlugin("Vault") != null)
-                    {
-                        if (m.getEcononmy().getBalance(p.getName()) >= Integer.parseInt(m.getFileManager().getConfigEntrys().get("ClanCreate.clanCreateMoneyNeed")))
-                        {
-                            m.getEcononmy().withdrawPlayer(p.getName(), Integer.parseInt(m.getFileManager().getConfigEntrys().get("ClanCreate.clanCreateMoneyNeed")));
-                            m.getClanManager().ClanCreate(name, p.getName(), tag);
-                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.crclan"));
-                            created = true;
-                        }
-                    }
+                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughmoney"));
+                }
+                if (paysystem.equalsIgnoreCase("item"))
+                {
+                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notitemscreate"));
                 }
             }
         }
-        if (created == false)
+        else
         {
-            if (paysystem.equalsIgnoreCase("money"))
-            {
-                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughmoney"));
-            }
-            if (paysystem.equalsIgnoreCase("item"))
-            {
-                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notitemscreate"));
-            }
+            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.alreadyhaveclan"));
         }
     }
 }

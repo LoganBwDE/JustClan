@@ -42,7 +42,7 @@ public class CmdInvite
                 }
                 else
                 {
-                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messsages.notonline").replace("%player%", arg));
+                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notonline").replace("%player%", arg));
                 }
             }
             else

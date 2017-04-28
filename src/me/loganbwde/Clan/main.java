@@ -45,7 +45,8 @@ public class main extends JavaPlugin
     private MySQL sql;
     private ShopManager shman;
     private WarsManager wsman;
-    public Api api;
+    @SuppressWarnings("unused")
+    private Api api;
 
     public String tablename = "justclan_clans";
     public String tablename2 = "justclan_players";
@@ -234,10 +235,5 @@ public class main extends JavaPlugin
     public WarsManager getWarsManager()
     {
         return wsman;
-    }
-    
-    public Api getApi()
-    {
-        return api;
     }
 }

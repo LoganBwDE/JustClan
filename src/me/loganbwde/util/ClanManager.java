@@ -461,15 +461,20 @@ public class ClanManager
             int j = 0;
             for (int i = 1; i <= 15; i++)
             {
-                if (i < 15)
+                try
                 {
-                    m.statement.executeUpdate("UPDATE " + m.tablename + " SET member" + i + " = '" + me.get(j) + "' WHERE name='" + cl + "';");
-                    j++;
+                    if (i < 15)
+                    {
+                        m.statement.executeUpdate("UPDATE " + m.tablename + " SET member" + i + " = '" + me.get(j) + "' WHERE name='" + cl + "';");
+                        j++;
+                    }
+                    else
+                    {
+                        m.statement.executeUpdate("UPDATE " + m.tablename + " SET member" + i + " = '" + "" + "' WHERE name='" + cl + "';");
+                    }
                 }
-                if (i == 15)
-                {
-                    m.statement.executeUpdate("UPDATE " + m.tablename + " SET member" + i + " = '" + "" + "' WHERE name='" + cl + "';");
-                }
+                catch(IndexOutOfBoundsException e)
+                {}
             }
         }
         catch (SQLException e)

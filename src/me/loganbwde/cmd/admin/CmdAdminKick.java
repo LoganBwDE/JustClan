@@ -21,7 +21,7 @@ public class CmdAdminKick
         }
         else
         {
-            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.clannotexist"));
+            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notexist"));
         }
     }
 }

@@ -426,8 +426,7 @@ public class OnInvClick implements Listener
             {
                 String shsl = m.inedit.get(e.getWhoClicked().getName());
                 String[] args = shsl.split(",");
-                if (inv.getName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', m.getFileManager().getMessageEntrys().get("Messages.selected").replace("%shop", args[0]).replace("%slot%", args[1]))))
-                    ;
+                if (inv.getName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', m.getFileManager().getMessageEntrys().get("Shop.selected").replace("%shop%", args[0]).replace("%slot%", args[1]))))
                 {
                     e.setCancelled(true);
                     if (click.getType() == Material.WORKBENCH)

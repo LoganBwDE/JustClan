@@ -86,62 +86,79 @@ Messages:
    rankalreadyrequested: '&cYou already requested a uprank-request.'
    rankrequested: '&6You sucessful created an uprank-request.'
    rankownernotonline: '&cThe rank owner is not online.'
+   tagsnotenabled: '&cTags arent enabled on this server.'
+   tagtoolong: '&cYour tag is too long.'
+   nametoolong: '&cYour name is too long.'
    error: '&4Unknown Error!'
 Menu:
-   header: '&3[======================&cClan&3=====================]'
-   firstpage: 'To the first site'
-   secondpage: 'To the second site'
-   claninfo: 'Shows infos about your clan'
-   clancreate: 'Create a clan'
-   clandelete: 'Delete a clan'
-   clanleave: 'Leave a clan'
-   claninvite: 'Invite someone to your clan'
-   clanaccept: 'Accept the clan invitation'
-   clandeny: 'Denys the clan invitation'
-   clankick: 'Kicks a player out of your clan'
-   clanpay: 'Pays points to your clan'
-   clanrank: 'Increases the clan rank'
-   clanhome: 'Teleport you to the clan-home'
-   clansethome: 'Sets the clan-home'
-   clanstartwars: 'Starts an clan-wars'
-   clanwarsdecision: 'Accepts | Denys the wars invitation'
-   clanpoints: 'Shows your points'
-   clanshop: 'Opens the clan shop'
-   clantop: 'See the Top 5 of clans'
-   clanchat: 'Enter | Leaves the clanchat'
-   clanmessage1: 'message'
-   clanmessage2: 'Writes a message in clanchat'
-   rank: 'Shows some info about your current rank'
-   applyrank: 'Apply to the next rank'
-   footer: '&3[===================================================]'
-MenuAdmin:
-   clanadmin: 'Shows this text'
-   claninfoadmin: 'Shows infos about an clan'
-   clandeleteadmin: 'Deletes a clan'
-   clankickadmin: 'Kicks a player out of an clan'
-   clanrankupadmin: 'Increases the clan rank of an clan'
-   createwars: 'Creates a wars'
-   setwarsloc1: 'Sets the first wars location'
-   setwarsloc2: 'Sets the second wars location'
-   setwarsspawn1: 'Sets the first wars spawn'
-   setwarsspawn2: 'Sets the second wars location'
-   setendspawn: 'Sets the end spawn'
-   setpoints: 'Add points to an clan / player'
-   clanlistadmin: 'Shows all clans listed'
-ClanMenu:
-   yourclan: 'Your clan'
-   clanname: 'Clan-Name'
-   clantag: 'Clan-Tag'
-   clanowner: 'Clan-Owner'
-   clanmember: 'Clan-Member'
-   clankd: 'Clan-KD'
-   clanlevel: 'Clan-Points'
-   clanranking: 'Clan-Rank'
-   clandeaths: 'Deaths'
-   clankills: 'Kills'
+   page1:
+      1: '&3[======================&cClan&3=====================]'
+      2: "&6/clan info : Shows infos about your clan"
+      3: "&6/clan create <Name> <Tag> : Create a clan"
+      4: "&6/clan delete : Delete a clan"
+      5: "&6/clan leave : Leave a clan"
+      6: "&6/clan invite [revoke] <Player> : Invite someone to your clan"
+      7: "&6/clan accept <Clan> : Accept the clan invitation"
+      8: "&6/clan deny <Clan> : Denys the clan invitation"
+      9: "&6/clan kick <Player> : Kicks a player out of your clan"
+      10: "&6/clan pay <Points> : Pays points to your clan"
+      11: "&6/clan rankup : Increases the clan rank"
+      12: "&6/clan next: To the second site"
+      13: '&3[===================================================]'
+   page2:
+      1: '&3[======================&cClan&3=====================]'
+      2: "&6/clan home : Teleport you to the clan-home"
+      3: "&6/clan sethome : Sets the clan-home"
+      4: "&6/clan rank : Shows some info about your current rank"
+      5: "&6/clan applyrank [accept|deny] [player]: Apply to the next rank"
+      6: "&6/clan wars <accept|deny> <Clan> : Accepts | Denys the wars invitation"
+      7: "&6/clan startwars <Location> <Clan> : Starts an clan-wars"
+      8: "&6/clan points : Shows your points"
+      9: "&6/clan shop : Opens the clan shop"
+      10: "&6/clan top : See the Top 5 of clans"
+      11: "&6/clan chat : Enter | Leaves the clanchat"
+      12: "&6#<message&6> : Writes a message in clanchat" 
+      13: "&6/clan: To the first site"
+      14: '&3[===================================================]'        
+   info:
+      1: "&3[====================&rYour clan&3===================]"
+      2: "&3Clan-Name : &c%clan%"
+      3: "&3Clan-Tag : &c%tag%"
+      4: "&3Clan-Owner : &c%owner%"
+      5: "&3Clan-Member : &c%members% [%size%]"
+      6: "&3Clan-KD : &c%kills% Kills / %deaths% Deaths (%kd%)"
+      7: "&3Clan-Points : &c%points% [%nextpoints%]"
+      8: "&3Clan-Rank : &c%rank%"
+      9: "&3[===============================================]"        
+   admin:
+      1: "&4[======================&aAdmin&4=====================]"
+      2: "&c/clan admin : Shows this text"
+      3: "&c/clan admin info <Clan> : Shows infos about an clan"
+      4: "&c/clan admin delete <Clan> : Deletes a clan"
+      5: "&c/clan admin kick <Clan> <Player> : Kicks a player out of an clan"
+      6: "&c/clan admin rankup <Clan> : Increases the clan rank of an clan"
+      7: "&c/clan admin createwars <WarName> : Creates a wars"
+      8: "&c/clan admin setwarslocation1 <WarName> : Sets the first wars location"
+      9: "&c/clan admin setwarslocation2 <WarName> : Sets the second wars location"
+      10: "&c/clan admin setwarsspawn1 <WarName> : Sets the first wars spawn"
+      11: "&c/clan admin setwarsspawn2 <WarName> : Sets the second wars spawn"
+      12: "&c/clan admin setendspawn <WarName> : Sets the end spawn"
+      13: "&c/clan admin setpoints <Clan/Player> <Points> : Add points to an clan / player"
+      14: "&c/clan admin list : Shows all clans listed"
+      15: "&4[===================================================]"
+   admininfo:
+      1: "&3[====================&cAdmin Info&3===================]"
+      2: "&3Clan-Name : &c%clan%"
+      3: "&3Clan-Tag : &c%tag%"
+      4: "&3Clan-Owner : &c%owner%"
+      5: "&3Clan-Member : &c%members% [%size%]"
+      6: "&3Clan-KD : &c%kills% Kills / %deaths% Deaths (%kd%)"
+      7: "&3Clan-Points : &c%points% [%nextpoints%]"
+      8: "&3Clan-Rank : &c%rank%"
+      9: "&3[===============================================]"
 Shop:
    cost: '&6Costs'
-   selected: '&aSelected Shop | Slot: %shop% | %slot%'
+   selected: '&aShop | Slot: %shop% | %slot%'
    editmaterial: '&4Change Material'
    editmaterialamount: '&4Change Material-Amount'
    editname: '&4Change name'

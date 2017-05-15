@@ -77,3 +77,9 @@ Special:
       Amount: 1
       Name: Stick of Truth
       Cost: 10
+   slot5:
+      Material: WOOL
+      Amount: 1
+      Name: THE WOOL OF DOOOM
+      Extra: 4
+      Cost: 100

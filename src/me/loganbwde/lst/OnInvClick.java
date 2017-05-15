@@ -323,7 +323,7 @@ public class OnInvClick implements Listener
                         }
                         else
                         {
-                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughlvl"));
+                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughpoints"));
                         }
                     }
                 }
@@ -353,7 +353,7 @@ public class OnInvClick implements Listener
                         }
                         else
                         {
-                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughlvl"));
+                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughpoints"));
                         }
                     }
                 }
@@ -383,7 +383,7 @@ public class OnInvClick implements Listener
                         }
                         else
                         {
-                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughlvl"));
+                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughpoints"));
                         }
                     }
                 }
@@ -413,7 +413,7 @@ public class OnInvClick implements Listener
                         }
                         else
                         {
-                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughlvl"));
+                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.notenoughpoints"));
                         }
                     }
                 }

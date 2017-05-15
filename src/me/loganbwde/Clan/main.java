@@ -29,6 +29,7 @@ import me.loganbwde.util.ClanManager;
 import me.loganbwde.util.FileManager;
 import me.loganbwde.util.MessagesManager;
 import me.loganbwde.util.MySQL;
+import me.loganbwde.util.OnPlaceHolder;
 import me.loganbwde.util.PermissionsManager;
 import me.loganbwde.util.ScoreboardManager;
 import me.loganbwde.util.ShopManager;
@@ -97,36 +98,38 @@ public class main extends JavaPlugin
         };
 
         r.runTaskAsynchronously(this);
-
+        boolean sucess = false;
         try
         {
             statement = sql.getConnection();
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS " + tablename + " (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), owner VARCHAR(25), tag VARCHAR(25), points FLOAT(25), rank FLOAT(25), home VARCHAR(1000), member1 VARCHAR(25), member2 VARCHAR(25), member3 VARCHAR(25), member4 VARCHAR(25), member5 VARCHAR(25), member6 VARCHAR(25), member7 VARCHAR(25), member8 VARCHAR(25), member9 VARCHAR(25), member10 VARCHAR(25), member11 VARCHAR(25), member12 VARCHAR(25), member13 VARCHAR(25), member14 VARCHAR(25), member15 VARCHAR(25));");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS " + tablename2 + " (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), uuid VARCHAR(100), clan VARCHAR(25), kills FLOAT(25), deaths FLOAT(25), points FLOAT(25), rank VARCHAR(25));");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS " + tablename3 + " (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), location1 VARCHAR(1000), location2 VARCHAR(1000), spawn1 VARCHAR(1000), spawn2 VARCHAR(1000), end VARCHAR(1000));");
+            sucess = true;
         }
         catch (Exception e1)
         {
-            e1.printStackTrace();
         }
-
-        scman.setScoreboard(Bukkit.getScoreboardManager().getMainScoreboard());
-        ConsoleCommandSender console = Bukkit.getConsoleSender();
-        console.sendMessage(ChatColor.translateAlternateColorCodes('&', fman.getConfigEntrys().get("Basic.prefix") + " Plugin activated."));
-
-        if (Boolean.parseBoolean(fman.getConfigEntrys().get("Basic.scoreboard")) == true)
+        if(sucess)
         {
-            if (!Bukkit.getScheduler().isCurrentlyRunning(task))
+            scman.setScoreboard(Bukkit.getScoreboardManager().getMainScoreboard());
+            ConsoleCommandSender console = Bukkit.getConsoleSender();
+            console.sendMessage(ChatColor.translateAlternateColorCodes('&', fman.getConfigEntrys().get("Basic.prefix") + " Plugin activated."));
+    
+            if (Boolean.parseBoolean(fman.getConfigEntrys().get("Basic.scoreboard")) == true)
             {
-                task = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable()
+                if (!Bukkit.getScheduler().isCurrentlyRunning(task))
                 {
-                    @Override
-                    public void run()
+                    task = Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable()
                     {
-                        scman.updateSB();
-                        scman.TabAkt();
-                    }
-                }, 20, 20);
+                        @Override
+                        public void run()
+                        {
+                            scman.updateSB();
+                            scman.TabAkt();
+                        }
+                    }, 20, 20);
+                }
             }
         }
     }
@@ -170,6 +173,15 @@ public class main extends JavaPlugin
         new OnMove(this);
         new OnPlace(this);
         new OnRespawn(this);
+        try
+        {
+            if (Bukkit.getPluginManager().isPluginEnabled("MVdWPlaceholderAPI")) 
+            {
+                OnPlaceHolder.register(this);
+            }
+        }
+        catch(Exception e)
+        {}
         
         CmdMain cmdmain = new CmdMain(this);
         getCommand("clan").setExecutor(cmdmain);

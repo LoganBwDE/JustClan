@@ -4,6 +4,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.ConsoleCommandSender;
+
 import me.loganbwde.Clan.main;
 
 import java.sql.Connection;
@@ -59,7 +63,6 @@ public class MySQL
         }
         catch (ClassNotFoundException | SQLException ex)
         {
-            // Ausgabe: MySQL NICHT EINGETRAGEN
         }
     }
 
@@ -78,42 +81,13 @@ public class MySQL
         {
             e.printStackTrace();
         }
+        catch (NullPointerException e)
+        {
+            ConsoleCommandSender console = Bukkit.getConsoleSender();
+            console.sendMessage(ChatColor.translateAlternateColorCodes('&', m.getFileManager().getConfigEntrys().get("Basic.prefix") + " &cMySQL-Connection failed. Please check your Data and restart your server."));
+            console.sendMessage(ChatColor.translateAlternateColorCodes('&', m.getFileManager().getConfigEntrys().get("Basic.prefix") + " &cPLUGIN WILL BE DISABLED NOW."));
+            Bukkit.getPluginManager().disablePlugin(m);
+        }
         return statement;
     }
-
-    /*
-     * public Connection getConnection() { if(connection != null) {
-     * closeConnection(); } try { openConnection(); } catch
-     * (ClassNotFoundException e) { e.printStackTrace(); } catch (SQLException
-     * e) { e.printStackTrace(); } return connection; }
-     * 
-     * public void closeResources(ResultSet rs, PreparedStatement st) { if(rs !=
-     * null) { try { rs.close(); } catch (SQLException e) { e.printStackTrace();
-     * } }
-     * 
-     * if(st != null) { try { st.close(); } catch (SQLException e) {
-     * e.printStackTrace(); } } }
-     * 
-     * public void closeConnection() { try { connection.close(); } catch
-     * (SQLException e) { e.printStackTrace(); } connection = null; }
-     * 
-     * public void queryUpdate(String query) { Connection con = getConnection();
-     * PreparedStatement st = null; try { st = con.prepareStatement(query); }
-     * catch (SQLException e) { e.printStackTrace(); } try { st.executeUpdate();
-     * } catch (SQLException e) { e.printStackTrace(); } finally {
-     * closeResources(null, st); } }
-     * 
-     * public Connection openConnection() { try {
-     * Class.forName("com.mysql.jdbc.Driver"); } catch (ClassNotFoundException
-     * e1) { e1.printStackTrace(); } try { con = (Connection)
-     * DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" +
-     * database,user,password); con.setAutoReconnect(true); } catch(SQLException
-     * e) { e.printStackTrace(); } return null; }
-     * 
-     * public boolean hasConnection() { try { return con != null ||
-     * con.isValid(1); } catch (SQLException e) { e.printStackTrace(); return
-     * false; } }
-     * 
-     * }
-     */
 }

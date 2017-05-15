@@ -36,7 +36,7 @@ public class CmdTop
         {
             ResultSet rs = m.statement.executeQuery("SELECT * FROM " + m.tablename + " ORDER BY points DESC");
             int i = 0;
-            m.getMessagesManager().sendMessageNoPrefix(p, "&3[======================§cClans§3=====================]");
+            m.getMessagesManager().sendMessageNoPrefix(p, "&3[======================&cClans&3=====================]");
             while (rs.next() == true)
             {
                 if (i <= 5)

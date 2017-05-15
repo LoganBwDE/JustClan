@@ -192,7 +192,15 @@ public class ShopManager
         {
             if (i == -1)
             {
-                ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Armor.main.Material")), m.getFileManager().getShop().getInt("Armor.main.Amount"));
+                ItemStack item = null;
+                if(m.getFileManager().getShop().getString("Armor.main.Extra") != null)
+                {
+                    item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Armor.main.Material")), m.getFileManager().getShop().getInt("Armor.main.Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Armor.main.Extra"));
+                }
+                else
+                {
+                    item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Armor.main.Material")), m.getFileManager().getShop().getInt("Armor.main.Amount"));
+                }
                 ItemMeta item_meta = null;
                 item_meta = item.getItemMeta();
                 if (m.getFileManager().getShop().getString("Armor.main.Name") != null)
@@ -226,7 +234,15 @@ public class ShopManager
             {
                 if (i == -2)
                 {
-                    ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Armor.admin.Material")), m.getFileManager().getShop().getInt("Armor.admin.Amount"));
+                    ItemStack item = null;
+                    if(m.getFileManager().getShop().getString("Armor.admin.Extra") != null)
+                    {
+                        item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Armor.admin.Material")), m.getFileManager().getShop().getInt("Armor.admin.Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Armor.admin.Extra"));
+                    }
+                    else
+                    {
+                        item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Armor.admin.Material")), m.getFileManager().getShop().getInt("Armor.admin.Amount"));
+                    }
                     ItemMeta item_meta = null;
                     item_meta = item.getItemMeta();
                     if (m.getFileManager().getShop().getString("Armor.admin.Name") != null)
@@ -260,7 +276,15 @@ public class ShopManager
                 {
                     if (m.getFileManager().getShop().getString("Armor." + "slot" + i + "." + ".Material") != null)
                     {
-                        ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Armor." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Armor." + "slot" + i + "." + ".Amount"));
+                        ItemStack item = null;
+                        if(m.getFileManager().getShop().getString("Armor." + "slot" + i + "." + ".Extra") != null)
+                        {
+                            item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Armor." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Armor." + "slot" + i + "." + ".Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Armor." + "slot" + i + "." + ".Extra"));
+                        }
+                        else
+                        {
+                            item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Armor." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Armor." + "slot" + i + "." + ".Amount"));
+                        }
                         ItemMeta item_meta = null;
                         item_meta = item.getItemMeta();
                         if (m.getFileManager().getShop().getString("Armor." + "slot" + i + "." + ".Name") != null)
@@ -316,7 +340,15 @@ public class ShopManager
         {
             if (i == -1)
             {
-                ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Bow.main.Material")), m.getFileManager().getShop().getInt("Bow.main.Amount"));
+                ItemStack item = null;
+                if(m.getFileManager().getShop().getString("Bow.main.Extra") != null)
+                {
+                    item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Bow.main.Material")), m.getFileManager().getShop().getInt("Bow.main.Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Bow.main.Extra"));
+                }
+                else
+                {
+                    item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Bow.main.Material")), m.getFileManager().getShop().getInt("Bow.main.Amount"));
+                }
                 ItemMeta item_meta = null;
                 item_meta = item.getItemMeta();
                 if (m.getFileManager().getShop().getString("Bow.main.Name") != null)
@@ -350,8 +382,15 @@ public class ShopManager
             {
                 if (i == -2)
                 {
-                    ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Bow.admin.Material")), m.getFileManager().getShop().getInt("Bow.admin.Amount"));
-                    ItemMeta item_meta = null;
+                    ItemStack item = null;
+                    if(m.getFileManager().getShop().getString("Bow.admin.Extra") != null)
+                    {
+                        item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Bow.admin.Material")), m.getFileManager().getShop().getInt("Bow.admin.Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Bow.admin.Extra"));
+                    }
+                    else
+                    {
+                        item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Bow.admin.Material")), m.getFileManager().getShop().getInt("Bow.admin.Amount"));
+                    }ItemMeta item_meta = null;
                     item_meta = item.getItemMeta();
                     if (m.getFileManager().getShop().getString("Bow.admin.Name") != null)
                     {
@@ -384,7 +423,15 @@ public class ShopManager
                 {
                     if (m.getFileManager().getShop().getString("Bow." + "slot" + i + "." + ".Material") != null)
                     {
-                        ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Bow." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Bow." + "slot" + i + "." + ".Amount"));
+                        ItemStack item = null;
+                        if(m.getFileManager().getShop().getString("Bow." + "slot" + i + "." + ".Extra") != null)
+                        {
+                            item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Bow." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Bow." + "slot" + i + "." + ".Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Bow." + "slot" + i + "." + ".Extra"));
+                        }
+                        else
+                        {
+                            item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Bow." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Bow." + "slot" + i + "." + ".Amount"));
+                        }
                         ItemMeta item_meta = null;
                         item_meta = item.getItemMeta();
                         if (m.getFileManager().getShop().getString("Bow." + "slot" + i + "." + ".Name") != null)
@@ -440,7 +487,15 @@ public class ShopManager
         {
             if (i == -1)
             {
-                ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Sword.main.Material")), m.getFileManager().getShop().getInt("Sword.main.Amount"));
+                ItemStack item = null;
+                if(m.getFileManager().getShop().getString("Sword.main.Extra") != null)
+                {
+                    item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Sword.main.Material")), m.getFileManager().getShop().getInt("Sword.main.Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Sword.main.Extra"));
+                }
+                else
+                {
+                    item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Sword.main.Material")), m.getFileManager().getShop().getInt("Sword.main.Amount"));
+                }
                 ItemMeta item_meta = null;
                 item_meta = item.getItemMeta();
                 if (m.getFileManager().getShop().getString("Sword.main.Name") != null)
@@ -474,7 +529,15 @@ public class ShopManager
             {
                 if (i == -2)
                 {
-                    ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Sword.admin.Material")), m.getFileManager().getShop().getInt("Sword.admin.Amount"));
+                    ItemStack item = null;
+                    if(m.getFileManager().getShop().getString("Sword.admin.Extra") != null)
+                    {
+                        item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Sword.admin.Material")), m.getFileManager().getShop().getInt("Sword.admin.Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Sword.admin.Extra"));
+                    }
+                    else
+                    {
+                        item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Sword.admin.Material")), m.getFileManager().getShop().getInt("Sword.admin.Amount"));
+                    }
                     ItemMeta item_meta = null;
                     item_meta = item.getItemMeta();
                     if (m.getFileManager().getShop().getString("Sword.admin.Name") != null)
@@ -508,7 +571,15 @@ public class ShopManager
                 {
                     if (m.getFileManager().getShop().getString("Sword." + "slot" + i + "." + ".Material") != null)
                     {
-                        ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Sword." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Sword." + "slot" + i + "." + ".Amount"));
+                        ItemStack item = null;
+                        if(m.getFileManager().getShop().getString("Sword." + "slot" + i + "." + ".Extra") != null)
+                        {
+                            item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Sword." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Sword." + "slot" + i + "." + ".Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Sword." + "slot" + i + "." + ".Extra"));
+                        }
+                        else
+                        {
+                            item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Sword." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Sword." + "slot" + i + "." + ".Amount"));
+                        }
                         ItemMeta item_meta = null;
                         item_meta = item.getItemMeta();
                         if (m.getFileManager().getShop().getString("Sword." + "slot" + i + "." + ".Name") != null)
@@ -564,7 +635,15 @@ public class ShopManager
         {
             if (i == -1)
             {
-                ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Special.main.Material")), m.getFileManager().getShop().getInt("Special.main.Amount"));
+                ItemStack item = null;
+                if(m.getFileManager().getShop().getString("Special.main.Extra") != null)
+                {
+                    item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Special.main.Material")), m.getFileManager().getShop().getInt("Special.main.Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Special.main.Extra"));
+                }
+                else
+                {
+                    item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Special.main.Material")), m.getFileManager().getShop().getInt("Special.main.Amount"));
+                }
                 ItemMeta item_meta = null;
                 item_meta = item.getItemMeta();
                 if (m.getFileManager().getShop().getString("Special.main.Name") != null)
@@ -598,13 +677,22 @@ public class ShopManager
             {
                 if (i == -2)
                 {
-                    ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Special.admin.Material")), m.getFileManager().getShop().getInt("Special.admin.Amount"));
+                    ItemStack item = null;
+                    if(m.getFileManager().getShop().getString("Special.admin.Extra") != null)
+                    {
+                        item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Special.admin.Material")), m.getFileManager().getShop().getInt("Special.admin.Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Special.admin.Extra"));
+                    }
+                    else
+                    {
+                        item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Special.admin.Material")), m.getFileManager().getShop().getInt("Special.admin.Amount"));
+                    }
                     ItemMeta item_meta = null;
                     item_meta = item.getItemMeta();
                     if (m.getFileManager().getShop().getString("Special.admin.Name") != null)
                     {
                         item_meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', m.getFileManager().getShop().getString("Special.admin.Name")));
                     }
+                    
                     if (m.getFileManager().getShop().getString("Special.admin.Enchantment") != null)
                     {
                         String[] arg = m.getFileManager().getShop().getString("Special.admin.Enchantment").split(",");
@@ -632,7 +720,15 @@ public class ShopManager
                 {
                     if (m.getFileManager().getShop().getString("Special." + "slot" + i + "." + ".Material") != null)
                     {
-                        ItemStack item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Special." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Special." + "slot" + i + "." + ".Amount"));
+                        ItemStack item = null;
+                        if(m.getFileManager().getShop().getString("Special." + "slot" + i + "." + ".Extra") != null)
+                        {
+                            item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Special." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Special." + "slot" + i + "." + ".Amount"),(short) 0,(byte) m.getFileManager().getShop().getInt("Special." + "slot" + i + "." + ".Extra"));
+                        }
+                        else
+                        {
+                            item = new ItemStack(Material.getMaterial(m.getFileManager().getShop().getString("Special." + "slot" + i + "." + ".Material")), m.getFileManager().getShop().getInt("Special." + "slot" + i + "." + ".Amount"));
+                        }
                         ItemMeta item_meta = null;
                         item_meta = item.getItemMeta();
                         if (m.getFileManager().getShop().getString("Special." + "slot" + i + "." + ".Name") != null)

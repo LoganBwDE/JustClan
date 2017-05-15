@@ -15,14 +15,23 @@ public class CmdInfo
     public void menu(Player p)
     {
         String pName = p.getName();
-        m.getMessagesManager().sendMessageNoPrefix(p, "&3[====================&r" + m.getFileManager().getMessageEntrys().get("ClanMenu.yourclan") + "&3===================]");
-        m.getMessagesManager().sendMessageNoPrefix(p, "&3" + m.getFileManager().getMessageEntrys().get("ClanMenu.clanname") + ": &c" + m.getClanManager().getClan(pName));
-        m.getMessagesManager().sendMessageNoPrefix(p, "&3" + m.getFileManager().getMessageEntrys().get("ClanMenu.clantag") + ": &c" + m.getClanManager().getClanTag(pName));
-        m.getMessagesManager().sendMessageNoPrefix(p, "&3" + m.getFileManager().getMessageEntrys().get("ClanMenu.clanowner") + ": &c" + m.getClanManager().getClanOwner(m.getClanManager().getClan(pName)));
-        m.getMessagesManager().sendMessageNoPrefix(p, "&3" + m.getFileManager().getMessageEntrys().get("ClanMenu.clanmember") + ": &c" + m.getClanManager().getMember(m.getClanManager().getClan(pName)) + " [" + m.getClanManager().getClanSize(pName) + "]");
-        m.getMessagesManager().sendMessageNoPrefix(p, "&3" + m.getFileManager().getMessageEntrys().get("ClanMenu.clankd") + ": &c" + m.getFileManager().getMessageEntrys().get("ClanMenu.clankills") + " " + m.getClanManager().getClanKill(pName) + "  /  " + m.getFileManager().getMessageEntrys().get("ClanMenu.clandeaths") + " " + m.getClanManager().getClanDeath(pName) + " (" + m.getClanManager().getClanKD(pName) + ")");
-        m.getMessagesManager().sendMessageNoPrefix(p, "&3" + m.getFileManager().getMessageEntrys().get("ClanMenu.clanlevel") + ": &c" + m.getClanManager().getClanLevel(pName) + " [" + m.getClanManager().getNeedLevel(pName) + "]");
-        m.getMessagesManager().sendMessageNoPrefix(p, "&3" + m.getFileManager().getMessageEntrys().get("ClanMenu.clanranking") + ": &c" + m.getClanManager().getClanRank(pName));
-        m.getMessagesManager().sendMessageNoPrefix(p, "&3[===============================================]");
+        for(int i = 0;i <= 20;i++)
+        {
+            if(m.getFileManager().getMessageEntrys().get("Menu.info." + i) != null)
+            {
+                m.getMessagesManager().sendMessageNoPrefix(p, m.getFileManager().getMessageEntrys().get("Menu.info." + i)
+                .replaceAll("%clan%", m.getClanManager().getClan(pName))
+                .replaceAll("%tag%", m.getClanManager().getClanTag(pName))
+                .replaceAll("%owner%", m.getClanManager().getClanOwner(m.getClanManager().getClan(pName)))
+                .replaceAll("%members%", m.getClanManager().getMember(m.getClanManager().getClan(pName)).toString())
+                .replaceAll("%size%", String.valueOf(m.getClanManager().getClanSize(pName)))
+                .replaceAll("%kills%", String.valueOf(m.getClanManager().getClanKill(pName)))
+                .replaceAll("%deaths%", String.valueOf(m.getClanManager().getClanDeath(pName)))
+                .replaceAll("%kd%", String.valueOf(m.getClanManager().getClanKD(pName)))
+                .replaceAll("%points%", String.valueOf(m.getClanManager().getClanLevel(pName)))
+                .replaceAll("%nextpoints%", String.valueOf(m.getClanManager().getNeedLevel(pName)))
+                .replaceAll("%rank%", String.valueOf(m.getClanManager().getClanRank(pName))));
+            }
+        }
     }
 }

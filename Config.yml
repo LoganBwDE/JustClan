@@ -8,6 +8,9 @@ Basic:
    builtInChat: true
    shopname: '&cClanShop'
    formatting: true
+   useTag: true
+   tagSize: 4
+   nameSize: 10
 PvP:
    pvpinclan: false
 ClanWars:

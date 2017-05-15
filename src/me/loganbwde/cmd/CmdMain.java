@@ -518,6 +518,27 @@ public class CmdMain implements CommandExecutor
                             m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.noperm"));
                         }
                     }
+                    if(args[0].equalsIgnoreCase("create"))
+                    {
+                        if(m.getPermissionsManager().checkPermission(p, args[0]))
+                        {
+                            if(m.getFileManager().getConfigEntrys().get("Basic.useTag") == "false")
+                            {
+                                if(args[1].length() <= Integer.valueOf(m.getFileManager().getConfigEntrys().get("Basic.nameSize")))
+                                {
+                                    cmd_create.create(p,args[1]);
+                                }
+                                else
+                                {
+                                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.nametoolong"));
+                                }
+                            }
+                        }
+                        else
+                        {
+                            m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.noperm"));
+                        }
+                    }
                 }
                 if (args.length == 3)
                 {
@@ -525,7 +546,28 @@ public class CmdMain implements CommandExecutor
                     {
                         if(m.getPermissionsManager().checkPermission(p, args[0]))
                         {
-                            cmd_create.create(p,args[1],args[2]);
+                            if(m.getFileManager().getConfigEntrys().get("Basic.useTag") == "true")
+                            {
+                                if(args[1].length() <= Integer.valueOf(m.getFileManager().getConfigEntrys().get("Basic.nameSize")))
+                                {
+                                    if(args[2].length() <= Integer.valueOf(m.getFileManager().getConfigEntrys().get("Basic.tagSize")))
+                                    {
+                                        cmd_create.create(p,args[1],args[2]);
+                                    }
+                                    else
+                                    {
+                                        m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.tagtoolong"));
+                                    }
+                                }
+                                else
+                                {
+                                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.nametoolong"));
+                                }
+                            }
+                            else
+                            {
+                                m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.tagsnotenabled"));
+                            }
                         }
                         else
                         {
@@ -634,7 +676,7 @@ public class CmdMain implements CommandExecutor
                     {
                         if(m.getPermissionsManager().checkAdminPermission(p, args[1]))
                         {
-                            cmd_admin_info.menu(p, args[1]);
+                            cmd_admin_info.menu(p, args[2]);
                         }
                         else
                         {

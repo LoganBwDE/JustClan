@@ -1,8 +1,9 @@
 name: JustClan
-version: 2.2.3
+version: 2.3.0
 author: LoganBwDE
 main: me.loganbwde.Clan.main
 description: Clan plugin with lots of features included
+softdepend: [MVdWPlaceholderAPI]
 commands:
      clan:
           aliases: [cl]

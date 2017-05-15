@@ -366,31 +366,45 @@ public class FileManager
             entrysmsg.put(path, language.getString(path));
         }
 
-        ConfigurationSection c2 = language.getConfigurationSection("Menu.");
-        for (String st : c2.getKeys(false))
-        {
-            String path = c2.getCurrentPath() + "." + st;
-            entrysmsg.put(path, language.getString(path));
-        }
-
-        ConfigurationSection c3 = language.getConfigurationSection("MenuAdmin.");
-        for (String st : c3.getKeys(false))
-        {
-            String path = c3.getCurrentPath() + "." + st;
-            entrysmsg.put(path, language.getString(path));
-        }
-
-        ConfigurationSection c4 = language.getConfigurationSection("ClanMenu.");
-        for (String st : c4.getKeys(false))
-        {
-            String path = c4.getCurrentPath() + "." + st;
-            entrysmsg.put(path, language.getString(path));
-        }
-
         ConfigurationSection c5 = language.getConfigurationSection("Shop.");
         for (String st : c5.getKeys(false))
         {
             String path = c5.getCurrentPath() + "." + st;
+            entrysmsg.put(path, language.getString(path));
+        }
+
+        ConfigurationSection c12 = language.getConfigurationSection("Menu.page1.");
+        for (String st : c12.getKeys(false))
+        {
+            String path = c12.getCurrentPath() + "." + st;
+            entrysmsg.put(path, language.getString(path));
+        }
+        
+        ConfigurationSection c13 = language.getConfigurationSection("Menu.page2.");
+        for (String st : c13.getKeys(false))
+        {
+            String path = c13.getCurrentPath() + "." + st;
+            entrysmsg.put(path, language.getString(path));
+        }
+        
+        ConfigurationSection c14 = language.getConfigurationSection("Menu.info.");
+        for (String st : c14.getKeys(false))
+        {
+            String path = c14.getCurrentPath() + "." + st;
+            entrysmsg.put(path, language.getString(path));
+        }
+        
+        ConfigurationSection c15 = language.getConfigurationSection("Menu.admin.");
+        for (String st : c15.getKeys(false))
+        {
+            String path = c15.getCurrentPath() + "." + st;
+            entrysmsg.put(path, language.getString(path));
+        }
+        
+        ConfigurationSection c16 = language.getConfigurationSection("Menu.admininfo.");
+        for (String st : c16.getKeys(false))
+        {
+            String path = c16.getCurrentPath() + "." + st;
             entrysmsg.put(path, language.getString(path));
         }
         return entrysmsg;

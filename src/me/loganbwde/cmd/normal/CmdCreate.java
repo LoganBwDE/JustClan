@@ -35,33 +35,43 @@ public class CmdCreate
                     int amount = 0;
                     for(int i = 0;i < p.getInventory().getSize();i++)
                     {
-                        if(p.getInventory().getItem(i).getType() == mat)
+                        try
                         {
-                            amount = amount + p.getInventory().getItem(i).getAmount();
+                            if(p.getInventory().getItem(i).getType() == mat)
+                            {
+                                amount = amount + p.getInventory().getItem(i).getAmount();
+                            }
                         }
+                        catch(NullPointerException ex)
+                        {}
                     }
                     if(amount <= Integer.parseInt(m.getFileManager().getConfigEntrys().get("ClanCreate.CreateAmount")))
                     {
                         for(int i = 0;i < p.getInventory().getSize();i++)
                         {
-                            if(p.getInventory().getItem(i).getType() == mat)
+                            try
                             {
-                                if(amount <= p.getInventory().getItem(i).getAmount())
+                                if(p.getInventory().getItem(i).getType() == mat)
                                 {
-                                    amount = p.getInventory().getItem(i).getAmount() - amount;
-                                    p.getInventory().getItem(i).setAmount(amount);
-                                    p.updateInventory();
-                                    m.getClanManager().ClanCreate(name, p.getName(), tag);
-                                    m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.crclan"));
-                                    created = true;
-                                }
-                                else
-                                {
-                                    amount = amount - p.getInventory().getItem(i).getAmount();
-                                    p.getInventory().remove(i);
-                                    p.updateInventory();
+                                    if(amount <= p.getInventory().getItem(i).getAmount())
+                                    {
+                                        amount = p.getInventory().getItem(i).getAmount() - amount;
+                                        p.getInventory().getItem(i).setAmount(amount);
+                                        p.updateInventory();
+                                        m.getClanManager().ClanCreate(name, p.getName(), tag);
+                                        m.getMessagesManager().sendMessage(p, m.getFileManager().getMessageEntrys().get("Messages.crclan"));
+                                        created = true;
+                                    }
+                                    else
+                                    {
+                                        amount = amount - p.getInventory().getItem(i).getAmount();
+                                        p.getInventory().remove(i);
+                                        p.updateInventory();
+                                    }
                                 }
                             }
+                            catch(NullPointerException ex)
+                            {}
                         }
                     }
                 }

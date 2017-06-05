@@ -259,7 +259,7 @@ public class OnChat implements Listener
                             PermissionUser user = PermissionsEx.getUser(p);
                             String prefix = user.getPrefix();
                             String suffix = user.getSuffix();
-                            format = format.replace("<prefix>", prefix).replace("<suffix>", suffix);
+                            format = format.replaceAll("<prefix>", prefix).replaceAll("<suffix>", suffix);
                         }
                         if(checkJobs())
                         {
@@ -277,7 +277,7 @@ public class OnChat implements Listener
                                     }
                                 }
                             }
-                            format = format.replace("<job>", job);
+                            format = format.replaceAll("<job>", job);
                         }
                         String tag = m.getClanManager().getTagColour(pName) + m.getClanManager().getClanTag(pName);
                         String clan = m.getClanManager().getClan(pName);
@@ -285,7 +285,7 @@ public class OnChat implements Listener
                         {
                             if(m.getFileManager().getConfigEntrys().get("Chat.clanchat.range").equalsIgnoreCase("global"))
                             {
-                                format = format.replace("<tag>", tag).replace("<player>", "%1$s").replace("<clan>", clan).replace("<message>", "%2$s");
+                                format = format.replaceAll("<tag>", tag).replaceAll("<player>", "%1$s").replaceAll("<clan>", clan).replaceAll("<message>", "%2$s");
                                 boolean member = false;
                                 for (int i = 0; i < m.getClanManager().getMember(m.getClanManager().getClan(pName)).size(); i++)
                                 {
@@ -312,7 +312,7 @@ public class OnChat implements Listener
                             }
                             else
                             {
-                                format = format.replace("<tag>", tag).replace("<player>", pName).replace("<clan>", clan).replace("<message>", e.getMessage());
+                                format = format.replaceAll("<tag>", tag).replaceAll("<player>", pName).replaceAll("<clan>", clan).replaceAll("<message>", e.getMessage());
                                 boolean member = false;
                                 for (int i = 0; i < m.getClanManager().getMember(m.getClanManager().getClan(pName)).size(); i++)
                                 {
@@ -348,12 +348,12 @@ public class OnChat implements Listener
                         {
                             if(m.getFileManager().getConfigEntrys().get("Chat.withclan.range").equalsIgnoreCase("global"))
                             {
-                                format = format.replace("<tag>", tag).replace("<player>", "%1$s").replace("<clan>", clan).replace("<message>", "%2$s");
+                                format = format.replaceAll("<tag>", tag).replaceAll("<player>", "%1$s").replaceAll("<clan>", clan).replaceAll("<message>", "%2$s");
                                 setFormat(e,format);
                             }
                             else
                             {
-                                format = format.replace("<tag>", tag).replace("<player>", pName).replace("<clan>", clan).replace("<message>", e.getMessage());
+                                format = format.replaceAll("<tag>", tag).replaceAll("<player>", pName).replaceAll("<clan>", clan).replaceAll("<message>", e.getMessage());
                                 int distance = Integer.parseInt(m.getFileManager().getConfigEntrys().get("Chat.withclan.rangedistance"));
                                 for(Entity entity : p.getNearbyEntities(distance, distance, distance))
                                 {
@@ -377,22 +377,22 @@ public class OnChat implements Listener
                         {
                             if(m.getClanManager().HaveClan(pName))
                             {
-                                e.setFormat(e.getFormat().replace("<clan>", m.getClanManager().getClan(pName)));
+                                e.setFormat(e.getFormat().replaceAll("<clan>", m.getClanManager().getClan(pName)));
                             }
                             else
                             {
-                                e.setFormat(e.getFormat().replace("<clan>", ""));
+                                e.setFormat(e.getFormat().replaceAll("<clan>", ""));
                             }
                         }
                         if(e.getFormat().contains("<clantag>"))
                         {
                             if(m.getClanManager().HaveClan(pName))
                             {
-                                e.setFormat(e.getFormat().replace("<clantag>", m.getClanManager().getClanTag(m.getClanManager().getClan(pName))));
+                                e.setFormat(e.getFormat().replaceAll("<clantag>", m.getClanManager().getClanTag(m.getClanManager().getClan(pName))));
                             }
                             else
                             {
-                                e.setFormat(e.getFormat().replace("<clantag>", ""));
+                                e.setFormat(e.getFormat().replaceAll("<clantag>", ""));
                             }
                         }
                     }
@@ -411,7 +411,7 @@ public class OnChat implements Listener
                             PermissionUser user = PermissionsEx.getUser(p);
                             String prefix = user.getPrefix();
                             String suffix = user.getSuffix();
-                            format = format.replace("<prefix>", prefix).replace("<suffix>", suffix);
+                            format = format.replaceAll("<prefix>", prefix).replaceAll("<suffix>", suffix);
                         }
                         if(checkJobs())
                         {
@@ -429,18 +429,16 @@ public class OnChat implements Listener
                                     }
                                 }
                             }
-                            format = format.replace("<job>", job);
+                            format = format.replaceAll("<job>", job);
                         }
-                        String tag = m.getClanManager().getTagColour(pName) + m.getClanManager().getClanTag(pName);
-                        String clan = m.getClanManager().getClan(pName);
                         if(m.getFileManager().getConfigEntrys().get("Chat.noclan.range").equalsIgnoreCase("global"))
                         {
-                            format = format.replace("<tag>", tag).replace("<player>", "%1$s").replace("<clan>", clan).replace("<message>", "%2$s");
-                            setFormat(e,format);
+                            format = format.replaceAll("<player>", "%1$s").replaceAll("<message>", "%2$s");
+                            setFormat(e,format);  
                         }
                         else
                         {
-                            format = format.replace("<tag>", tag).replace("<player>", pName).replace("<clan>", clan).replace("<message>", e.getMessage());
+                            format = format.replaceAll("<player>", pName).replaceAll("<message>", e.getMessage());
                             int distance = Integer.parseInt(m.getFileManager().getConfigEntrys().get("Chat.noclan.rangedistance"));
                             for(Entity entity : p.getNearbyEntities(distance, distance, distance))
                             {
